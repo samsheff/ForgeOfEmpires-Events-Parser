@@ -1,0 +1,1 @@
+cat history.json | jq '.history | .[] | .request.url' | grep "https://cst.innogames.de/e.gif?data=" | sed 's/https:\/\/cst.innogames.de\/e.gif?data=//' | sed 's/"//g' | while read in; do echo $in | base64 -D -i -; done
